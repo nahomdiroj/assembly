@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Search = () => {
+const Searchprint = () => {
     const navigate = useNavigate();
     const [searach, setsearach] = useState('');
     const [result, setResult] = useState(null);
@@ -69,7 +69,7 @@ const Search = () => {
         setShareholderdetail(person);
         console.log("the obj"+shareholderdetail.id)
 
-        navigate('/assemblynah/print', { state: { person } });
+        navigate('/assemblynah/Justprint', { state: { person } });
       
       };
 
@@ -122,7 +122,7 @@ const Search = () => {
     return (
         <div className="flex flex-col items-center  min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-6 my-24 bg-white rounded shadow-md">
-                <h2 className="text-2xl font-semibold text-center text-gray-800">Search For Attendance</h2>
+                <h2 className="text-2xl font-semibold text-center text-gray-800">Search For Printing</h2>
 
                 <form onSubmit={isNaN(searach)?handleSearch:handleSearchphone} className="mt-4 space-y-4">
                     <div>
@@ -174,14 +174,14 @@ const Search = () => {
                                 <td  onClick={() => handleRowClick(shareholder)}className="px-4 py-2">{shareholder.nameeng}</td>
                                 <td  onClick={() => handleRowClick(shareholder)}className="px-4 py-2">{shareholder.share_holder_id}</td>
                                 <td  onClick={() => handleRowClick(shareholder)}className="px-4 py-2">{shareholder.phone}</td>
-                                {/* <td className={shareholder.attendance===1?` px-4 py-2`:"px-4 py-2"}>{shareholder.attendance===1?"Cheked In":" "}</td> */}
-                                <td className="px-4 py-2">
+                                <td className={shareholder.attendance===1?` px-4 py-2`:"px-4 py-2"}>{shareholder.attendance===1?"Cheked In":" "}</td>
+                                {/* <td className="px-4 py-2">
                 <input 
                     type="checkbox" 
                     checked={shareholder.attendance === 1} // Check if attendance is 1 (checked in)
                     onChange={shareholder.attendance === 1?() => handleAttendanceChange(shareholder.id):() => handleRowClick(shareholder)} // Toggle attendance
                 />
-            </td>
+            </td> */}
              
                     </tr>
                         ))}
@@ -194,4 +194,4 @@ const Search = () => {
     );
 };
 
-export default Search
+export default Searchprint

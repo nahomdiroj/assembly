@@ -19,6 +19,12 @@ export default {
     }
     
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    // Enable the print variant
+    function ({ addVariant }) {
+      addVariant('print', '@media print');
+    }
+  ],
 }
 

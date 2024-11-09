@@ -4,7 +4,7 @@ import img2 from './logo2.jpg'
 import { useLocation } from 'react-router-dom';
 import html2pdf from 'html2pdf.js'
 import axios from 'axios';
-const Print = () => {
+const JustPrint = () => {
   const location = useLocation();
   const token = localStorage.getItem('token');
   const { person } = location.state || {};  //
@@ -24,28 +24,8 @@ const Print = () => {
     //   filename: person.nameeng
     // },
     // opt)
-    const printpdf = async () => {
-      try {
-          // Prepare the data to be sent, assuming you want to toggle the attendance as an example.
-          const newAttendance = person.attendance === 1 ? 0 : 1;
-  
-          // Send the request to update attendance with the data and Authorization header
-          await axios.post(
-              `http://localhost:8080/api/admin/attendance/${person.id}`,
-              { attendance: newAttendance },  // Send the updated attendance data
-              {
-                  headers: {
-                      Authorization: `Bearer ${token}`  // Include the Bearer token in the request headers
-                  }
-              }
-          );
-  
-          // Once the request is successful, trigger the print dialog
-          window.print();  // This will open the print dialog for the page
-  
-      } catch (error) {
-          console.error('Error updating attendance and printing:', error);
-      }
+    const printpdf = () => {
+    window.print()
   };
   return (
   <div id='print'>
@@ -139,4 +119,4 @@ const Print = () => {
   )
 }
 
-export default Print
+export default JustPrint

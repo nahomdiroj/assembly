@@ -44,7 +44,7 @@ const Login = () => {
         // Store the JWT token in localStorage
         localStorage.removeItem('token');
         localStorage.setItem('token', response.data);
-        navigate('/assemblynah/search');
+        navigate('/assemblynah/menu');
 
         // Clear form and error, navigate to home or dashboard (customize as needed)
         setUsername('');

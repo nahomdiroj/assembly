@@ -3,11 +3,13 @@ import img from './Logo.png'
 import img2 from './logo2.jpg'
 import { useLocation } from 'react-router-dom';
 import html2pdf from 'html2pdf.js'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const Print = () => {
   const location = useLocation();
   const token = localStorage.getItem('token');
-  const { person } = location.state || {};  //
+  const { person } = location.state || {}; 
+  const navigate = useNavigate(); //
 
   var opt = {
     margin: 1,
@@ -24,6 +26,7 @@ const Print = () => {
     //   filename: person.nameeng
     // },
     // opt)
+  
     const printpdf = async () => {
       try {
           // Prepare the data to be sent, assuming you want to toggle the attendance as an example.
@@ -40,15 +43,21 @@ const Print = () => {
               }
           );
   
+
+
+
+          
           // Once the request is successful, trigger the print dialog
-          window.print();  // This will open the print dialog for the page
+          window.print();
+          navigate('/assemblynah/search');
+          // This will open the print dialog for the page
   
       } catch (error) {
           console.error('Error updating attendance and printing:', error);
       }
   };
   return (
-  <div id='print'>
+  <div id='print'  className='my-8 py-8'>
         <div >
             <div className='' >
                   <div className='flex  justify-between'>

@@ -1,59 +1,59 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Assuming you're using react-router for navigation
+import { useNavigate } from 'react-router-dom';
+import img from './Portal.png'
 
 const Menu = () => {
     const navigate = useNavigate();
 
-    // Function to handle voting
     const handleVoting = () => {
         console.log("Voting clicked");
-        // You can replace this with actual voting functionality
-        navigate('/assemblynah/search'); // Navigate to the voting page
+        navigate('/assemblynah/search');
     };
 
-    // Function to handle printing
     const handlePrint = () => {
         console.log("Print clicked");
-        // You can replace this with actual print functionality
-        navigate('/assemblynah/searchprint'); 
+        navigate('/assemblynah/searchprint');
     };
 
-    // Function to handle attendance
     const handleAttendance = () => {
         console.log("Attendance clicked");
-        // You can replace this with actual attendance functionality
-        navigate('/assemblynah/search'); // Navigate to the attendance page
+        navigate('/assemblynah/search');
     };
 
     return (
-        <div className="w-64 bg-gray-800 text-white p-4 rounded-lg shadow-lg">
-            <h2 className="text-xl font-semibold mb-4">Menu</h2>
-            <ul className="space-y-4">
-                <li>
-                    <button 
-                        onClick={handleVoting}
-                        className="w-full py-2 px-4 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-left focus:outline-none"
-                    >
-                        Voting
-                    </button>
-                </li>
-                <li>
-                    <button 
-                        onClick={handlePrint}
-                        className="w-full py-2 px-4 bg-green-500 hover:bg-green-600 rounded-lg text-left focus:outline-none"
-                    >
-                        Print
-                    </button>
-                </li>
-                <li>
-                    <button 
-                        onClick={handleAttendance}
-                        className="w-full py-2 px-4 bg-blue-500 hover:bg-blue-600 rounded-lg text-left focus:outline-none"
-                    >
-                        Attendance
-                    </button>
-                </li>
-            </ul>
+        <div
+            className="flex items-center justify-center min-h-screen bg-cover bg-center"
+            style={{ backgroundImage: `url(${img})` }}
+        >
+            <div className="w-80 bg-yellow-100 bg-opacity-90 text-black p-6 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-semibold mb-6 text-center">Menu</h2>
+                <ul className="space-y-4">
+                    <li>
+                        <button 
+                            onClick={handleVoting}
+                            className="w-full py-2 px-4  text-white hover:text-black bg-black rounded hover:bg-amber-500"
+                        >
+                            Voting
+                        </button>
+                    </li>
+                    <li>
+                        <button 
+                            onClick={handlePrint}
+                            className="w-full py-2 px-4 text-white hover:text-black bg-black rounded hover:bg-amber-500"
+                        >
+                            Print
+                        </button>
+                    </li>
+                    <li>
+                        <button 
+                            onClick={handleAttendance}
+                            className="w-full py-2 px-4 text-white hover:text-black bg-black rounded hover:bg-amber-500"
+                        >
+                            Attendance
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
     );
 };

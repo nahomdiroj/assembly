@@ -4,7 +4,9 @@ import img2 from './logo2.jpg'
 import { useLocation } from 'react-router-dom';
 import html2pdf from 'html2pdf.js'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const JustPrint = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const token = localStorage.getItem('token');
   const { person } = location.state || {};  //
@@ -26,6 +28,7 @@ const JustPrint = () => {
     // opt)
     const printpdf = () => {
     window.print()
+    navigate('/assemblynah/searchprint');
   };
   return (
   <div id='print'>
